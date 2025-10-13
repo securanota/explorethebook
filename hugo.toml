@@ -1,0 +1,72 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Explore The Book'
+theme = 'PaperMod'
+
+[params]
+env = "development"
+description = "Freely given biblical commentary and theological resources for the global church"
+author = "Your Name"
+keywords = ["Bible", "Commentary", "Theology", "Free Resources", "Christian Education"]
+
+[params.homeInfoParams]
+Title = "Freely You Received, Freely Give"
+Content = "Comprehensive biblical commentary and theological resources, freely available to serve the global church. All content is released to the public domain in obedience to Christ's command."
+
+# Main menu configuration
+[[menu.main]]
+name = "Commentary"
+url = "/commentary/"
+weight = 10
+
+[[menu.main]]
+name = "Theology"
+url = "/theology/"
+weight = 20
+
+[[menu.main]]
+name = "Education"
+url = "/education/"
+weight = 30
+
+[[menu.main]]
+name = "Resources"
+url = "/resources/"
+weight = 40
+
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 50
+
+# Taxonomy configuration
+[taxonomies]
+topic = "topics"
+book = "books"
+difficulty = "difficulties"
+language = "languages"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS"]
+
+# Markup configuration for better content rendering
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = "github"
+lineNos = true
+codeFences = true
+
+# Site-wide parameters
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1000
+threshold = 0.4
+minMatchCharLength = 0
+keys = ["title", "permalink", "summary", "content"]
