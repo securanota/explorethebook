@@ -1,12 +1,8 @@
-# Explore The Book - Hugo Site
+# Explore The Book
 
-A containerized Hugo development environment for exploring books and literature.
+A website dedicated to helping people read the Bible faithfully and fruitfully.
 
 ## 🚀 Quick Start
-
-### Prerequisites
-- Docker Desktop installed and running
-- WSL 2 enabled (Windows)
 
 ### Development Commands
 
@@ -76,13 +72,3 @@ Edit `hugo.toml` to customize:
 - **Development**: http://localhost:1313
 - **Container**: The site runs inside a Docker container with Hugo 0.146.0
 - **Live Reload**: Changes to content and configuration auto-refresh the browser
-
-## 📦 Benefits of This Setup
-
-✅ **Isolated Environment**: No need to install Hugo on your Windows machine  
-✅ **Consistent**: Same Hugo version across all environments  
-✅ **Clean**: No pollution of your local system  
-✅ **Portable**: Easy to share and deploy  
-✅ **Version Controlled**: All configuration is in git  
-
-Happy writing! 📚✨
