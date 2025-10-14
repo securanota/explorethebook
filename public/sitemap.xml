@@ -125,11 +125,19 @@
   </url><url>
     <loc>http://localhost:1313/topics/origins/</loc>
   </url><url>
+    <loc>http://localhost:1313/topics/partnership/</loc>
+  </url><url>
     <loc>http://localhost:1313/topics/patriarchs/</loc>
   </url><url>
     <loc>http://localhost:1313/topics/person-of-christ/</loc>
   </url><url>
+    <loc>http://localhost:1313/commentary/new-testament/philippians/</loc>
+  </url><url>
+    <loc>http://localhost:1313/commentary/new-testament/philippians/01-01-11/</loc>
+  </url><url>
     <loc>http://localhost:1313/topics/pneumatology/</loc>
+  </url><url>
+    <loc>http://localhost:1313/topics/prayer/</loc>
   </url><url>
     <loc>http://localhost:1313/topics/promise/</loc>
   </url><url>
@@ -158,6 +166,8 @@
     <loc>http://localhost:1313/topics/systematic-theology/</loc>
   </url><url>
     <loc>http://localhost:1313/topics/temptation/</loc>
+  </url><url>
+    <loc>http://localhost:1313/topics/thanksgiving/</loc>
   </url><url>
     <loc>http://localhost:1313/theology/systematic/christology/</loc>
   </url><url>

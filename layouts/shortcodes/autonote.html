@@ -1,0 +1,11 @@
+{{- $content := .Inner -}}
+{{- $noteId := printf "auto-%d" .Ordinal -}}
+
+<sup class="footnote-ref">
+  <a href="#fn-{{ $noteId }}" class="footnote-link" aria-label="Footnote">{{ .Ordinal }}</a>
+</sup>
+
+<span class="footnote-content" id="fn-{{ $noteId }}" style="display: none;">
+  {{ $content | markdownify }}
+  <a href="#ref-{{ $noteId }}" class="footnote-backlink" aria-label="Return to text">↩</a>
+</span>

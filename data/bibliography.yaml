@@ -1,83 +1,94 @@
-- type: commentary
-  author: Gordon D. Fee
-  title: Paul's Letter to the Philippians
-  series: New International Commentary on the New Testament
-  publisher: Eerdmans
-  city: Grand Rapids
-  year: 1999
-  ISBN: 978-0802837018
+sources:
+  fee1999:
+    type: commentary
+    author: "Gordon D. Fee"
+    title: "Paul's Letter to the Philippians"
+    series: "New International Commentary on the New Testament"
+    publisher: Eerdmans
+    city: "Grand Rapids"
+    year: 1999
+    ISBN: "978-0802837018"
 
-- type: commentary
-  author: Ralph P. Martin
-  title: Philippians
-  series: The New Century Bible Commentary
-  publisher: Marshall, Morgan & Scott
-  city: London
-  year: 1983
-  ISBN: 978-0853641052
+  martin1983:
+    type: commentary
+    author: "Ralph P. Martin"
+    title: "Philippians"
+    series: "The New Century Bible Commentary"
+    publisher: "Marshall, Morgan & Scott"
+    city: London
+    year: 1983
+    ISBN: "978-0853641052"
 
-- type: commentary
-  author: Thomas C. O'Brien
-  title: The Epistle to the Philippians
-  series: The New International Greek Testament Commentary
-  publisher: Eerdmans
-  city: Grand Rapids
-  year: 1991
-  ISBN: 978-0802861136
+  obrien1991:
+    type: commentary
+    author: "Thomas C. O'Brien"
+    title: "The Epistle to the Philippians"
+    series: "The New International Greek Testament Commentary"
+    publisher: Eerdmans
+    city: "Grand Rapids"
+    year: 1991
+    ISBN: "978-0802861136"
 
-- type: commentary
-  author: Richard N. Longenecker
-  title: The Epistle to the Philippians
-  series: The Expositor's Bible Commentary
-  publisher: Zondervan
-  city: Grand Rapids
-  year: 2000
-  ISBN: 978-0310211466
+  longenecker2000:
+    type: commentary
+    author: "Richard N. Longenecker"
+    title: "The Epistle to the Philippians"
+    series: "The Expositor's Bible Commentary"
+    publisher: Zondervan
+    city: "Grand Rapids"
+    year: 2000
+    ISBN: "978-0310211466"
 
-- type: systematic theology
-  author: Wayne Grudem
-  title: Systematic Theology: An Introduction to Biblical Doctrine
-  publisher: Inter-Varsity Press
-  city: Downers Grove
-  year: 1994
-  ISBN: 978-0830816509
+  grudem1994:
+    type: systematic_theology
+    author: "Wayne Grudem"
+    title: "Systematic Theology: An Introduction to Biblical Doctrine"
+    publisher: "Inter-Varsity Press"
+    city: "Downers Grove"
+    year: 1994
+    ISBN: "978-0830816509"
 
-- type: systematic theology
-  author: Paul E. Wright
-  title: The Theology of Paul
-  publisher: InterVarsity Press
-  city: Downers Grove
-  year: 2017
-  ISBN: 978-0830841546
+  wright2017:
+    type: systematic_theology
+    author: "Paul E. Wright"
+    title: "The Theology of Paul"
+    publisher: "InterVarsity Press"
+    city: "Downers Grove"
+    year: 2017
+    ISBN: "978-0830841546"
 
-- type: systematic theology
-  author: Richard Bauckham
-  title: Jesus and the Eyewitnesses: The Gospels as Eyewitness Testimony
-  publisher: Eerdmans
-  city: Grand Rapids
-  year: 2006
-  ISBN: 978-0802838831
+  bauckham2006:
+    type: systematic_theology
+    author: "Richard Bauckham"
+    title: "Jesus and the Eyewitnesses: The Gospels as Eyewitness Testimony"
+    publisher: Eerdmans
+    city: "Grand Rapids"
+    year: 2006
+    ISBN: "978-0802838831"
 
-- type: christology
-  author: Larry W. Hurtado
-  title: Lord Jesus Christ: Devotion to Jesus in Earliest Christianity
-  publisher: Eerdmans
-  city: Grand Rapids
-  year: 2003
-  ISBN: 978-0802837278
+  hurtado2003:
+    type: christology
+    author: "Larry W. Hurtado"
+    title: "Lord Jesus Christ: Devotion to Jesus in Earliest Christianity"
+    publisher: Eerdmans
+    city: "Grand Rapids"
+    year: 2003
+    ISBN: "978-0802837278"
 
-- type: systematic theology
-  author: Stanley E. Porter
-  title: The Gospel of John and the Future of Christianity
-  publisher: Brill
-  city: Leiden
-  year: 2013
-  ISBN: 978-9004219406
+  porter2013:
+    type: systematic_theology
+    author: "Stanley E. Porter"
+    title: "The Gospel of John and the Future of Christianity"
+    publisher: Brill
+    city: Leiden
+    year: 2013
+    ISBN: "978-9004219406"
 
-- type: systematic theology
-  author: J. I. Packer
-  title: Knowing God
-  publisher: InterVarsity Press
-  city: Downers Grove
-  year: 1993
-  ISBN: 978-0830816509
+  packer1993:
+    type: systematic_theology
+    author: "J. I. Packer"
+    title: "Knowing God"
+    publisher: "InterVarsity Press"
+    city: "Downers Grove"
+    year: 1993
+    ISBN: "978-0830816509"

@@ -1,1 +1,4 @@
-{{- $passage := .Get 0 -}}\n{{- $url := .Get 1 -}}\n\n<a href="{{ $url }}" class="cross-reference" data-passage="{{ $passage }}">{{ $passage }}</a>
+{{- $passage := .Get 0 -}}
+{{- $url := .Get 1 -}}
+
+<a href="{{ $url }}" class="cross-reference" data-passage="{{ $passage }}">{{ $passage }}</a>

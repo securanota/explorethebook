@@ -1,11 +1,9 @@
-{{- $id := .Get "id" -}}
+{{- $id := .Get 0 -}}
 {{- $content := .Inner -}}
 
-<span class="footnote-ref">
-  <sup id="ref-{{ $id }}">
-    <a href="#fn-{{ $id }}" class="footnote-link" aria-label="Footnote {{ $id }}">{{ $id }}</a>
-  </sup>
-</span>
+<sup class="footnote-ref">
+  <a href="#fn-{{ $id }}" class="footnote-link" aria-label="Footnote {{ $id }}">{{ $id }}</a>
+</sup>
 
 <span class="footnote-content" id="fn-{{ $id }}" style="display: none;">
   {{ $content | markdownify }}
