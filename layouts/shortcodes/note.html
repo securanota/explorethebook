@@ -15,7 +15,7 @@
     {{- $sourceId := index $parts 0 | strings.TrimSpace -}}
     {{- $pages := index $parts 1 | default "" | strings.TrimSpace -}}
     {{- if $sourceId -}}
-      {{- $source := index $.Site.Data.bibliography.sources $sourceId -}}
+      {{- $source := index $.Site.Data.bibliography $sourceId -}}
       {{- if $source -}}
         {{ $source.author }}, <em>{{ $source.title }}</em>{{ if $source.year }} ({{ $source.year }}){{ end }}{{ if $pages }}, {{ $pages }}{{ end }}.
       {{- else -}}
