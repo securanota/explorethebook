@@ -1,1 +1,848 @@
-Add commentary layout template with reading modes and navigation
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">
+      {{ .Title }}
+    </h1>
+    <div class="post-meta">
+      <div class="commentary-meta">
+        <span class="meta-item">
+          <strong>Book:</strong> {{ .Params.book }}
+        </span>
+        <span class="meta-item">
+          <strong>Chapter:</strong> {{ .Params.chapter }}
+        </span>
+        <span class="meta-item">
+          <strong>Verses:</strong> {{ .Params.verses }}
+        </span>
+        <span class="meta-item">
+          <strong>Testament:</strong> {{ if eq .Params.testament "NT" }}New Testament{{ else }}Old Testament{{ end }}
+        </span>
+      </div>
+      
+      {{ if .Params.reading_time }}
+      <div class="reading-times">
+        <span class="time-estimate">
+          <strong>Quick Read:</strong> {{ .Params.reading_time }} min
+        </span>
+        {{ if .Params.study_time }}
+        <span class="time-estimate">
+          <strong>Study:</strong> {{ .Params.study_time }} min
+        </span>
+        {{ end }}
+        {{ if .Params.academic_time }}
+        <span class="time-estimate">
+          <strong>Academic:</strong> {{ .Params.academic_time }} min
+        </span>
+        {{ end }}
+      </div>
+      {{ end }}
+      
+      {{ if .Params.topics }}
+      <div class="topics">
+        <strong>Topics:</strong>
+        {{ range $index, $topic := .Params.topics }}
+          {{ if $index }}, {{ end }}
+          <a href="/topics/{{ $topic | urlize }}/" class="topic-link">{{ $topic }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+      
+      {{ if .Params.difficulty }}
+      <div class="difficulty">
+        <strong>Difficulty:</strong> 
+        <span class="difficulty-{{ .Params.difficulty }}">{{ .Params.difficulty | title }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <!-- Reading Mode Controls -->
+  <div class="reading-controls">
+    <div class="mode-selector">
+      <label><input type="radio" name="reading-mode" value="quick" checked> Quick Read</label>
+      <label><input type="radio" name="reading-mode" value="study"> Study Mode</label>
+      <label><input type="radio" name="reading-mode" value="academic"> Academic Mode</label>
+    </div>
+    <div class="view-options">
+      <label><input type="checkbox" id="show-greek" checked> Show Greek/Hebrew</label>
+      <label><input type="checkbox" id="show-citations" checked> Show Citations</label>
+      <label><input type="checkbox" id="show-footnotes" checked> Show Footnotes</label>
+    </div>
+  </div>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <!-- Navigation -->
+  <nav class="post-nav">
+    <div class="nav-section">
+      <h3>Navigate This Book</h3>
+      {{ $book := .Params.book }}
+      {{ $chapter := .Params.chapter }}
+      {{ $testament := .Params.testament }}
+      
+      <!-- Previous/Next Chapter -->
+      <div class="chapter-nav">
+        {{ if gt $chapter 1 }}
+          {{ $prevChapter := sub $chapter 1 }}
+          <a href="/commentary/{{ if eq $testament "NT" }}new-testament{{ else }}old-testament{{ end }}/{{ $book | lower }}/" class="nav-link prev">
+            ← {{ $book }} {{ $prevChapter }}
+          </a>
+        {{ end }}
+        
+        <a href="/commentary/{{ if eq $testament "NT" }}new-testament{{ else }}old-testament{{ end }}/{{ $book | lower }}/" class="book-overview">
+          {{ $book }} Overview
+        </a>
+        
+        <!-- Note: Next chapter would need more complex logic to determine if it exists -->
+      </div>
+    </div>
+    
+    <!-- Related Commentary -->
+    <div class="nav-section">
+      <h3>Related Commentary</h3>
+      <div class="related-links">
+        {{ range .Params.topics }}
+          <a href="/topics/{{ . | urlize }}/" class="related-topic">{{ . | title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </nav>
+</article>
+
+<!-- Add custom CSS for commentary layout and shortcodes -->
+<style>
+/* Commentary Layout Styles */
+.commentary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.meta-item {
+  background: var(--theme);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--border);
+}
+
+.reading-times {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.time-estimate {
+  color: var(--secondary);
+}
+
+.topics {
+  margin: 0.5rem 0;
+}
+
+.topic-link {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  margin-right: 0.25rem;
+}
+
+.topic-link:hover {
+  background: var(--tertiary);
+}
+
+.difficulty {
+  margin: 0.5rem 0;
+}
+
+.difficulty-beginner { color: #28a745; }
+.difficulty-intermediate { color: #ffc107; }
+.difficulty-advanced { color: #dc3545; }
+
+.reading-controls {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+}
+
+.mode-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.view-options {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.reading-controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.post-nav {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.nav-section {
+  margin-bottom: 1.5rem;
+}
+
+.nav-section h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.chapter-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link, .book-overview {
+  padding: 0.5rem 1rem;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: var(--primary);
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover, .book-overview:hover {
+  background: var(--tertiary);
+}
+
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.related-topic {
+  padding: 0.25rem 0.5rem;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.related-topic:hover {
+  background: var(--tertiary);
+  color: var(--primary);
+}
+
+/* Expandable Shortcode Styles */
+.expandable {
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--theme);
+}
+
+.expandable-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  background: var(--theme);
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.expandable-title::-webkit-details-marker {
+  display: none;
+}
+
+.expandable-title:hover {
+  background: var(--tertiary);
+}
+
+.icon-expand {
+  transition: transform 0.2s;
+  color: var(--primary);
+}
+
+.expandable[open] .icon-expand {
+  transform: rotate(180deg);
+}
+
+.expandable-content {
+  padding: 0 1rem 1rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.expandable-level-2 {
+  margin-left: 1rem;
+}
+
+.expandable-level-3 {
+  margin-left: 2rem;
+}
+
+/* Greek/Hebrew Word Styles */
+.original-word {
+  position: relative;
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  z-index: 1;
+}
+
+.greek-word {
+  font-family: "SBL Greek", "Gentium Plus", "Times New Roman", serif;
+}
+
+.hebrew-word {
+  font-family: "SBL Hebrew", "Ezra SIL", "Times New Roman", serif;
+  direction: rtl;
+}
+
+.word-tooltip {
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  pointer-events: none;
+  font-family: var(--font-family);
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/* Tooltip positioning for edge cases */
+.word-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--border);
+}
+
+.word-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--entry);
+  margin-top: -1px;
+}
+
+/* Show tooltip on hover (desktop) */
+.original-word:hover .word-tooltip,
+.original-word.tooltip-hover .word-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Show tooltip when active (mobile/keyboard) */
+.original-word.tooltip-active .word-tooltip,
+.original-word:focus .word-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Focus styles for accessibility */
+.original-word:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Academic Note Styles */
+.academic-note {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.academic-note-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.academic-note-content {
+  flex: 1;
+}
+
+.academic-note-content p:first-child {
+  margin-top: 0;
+}
+
+.academic-note-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Citation Styles */
+.citation {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  background: var(--theme);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.citation-inline {
+  font-style: italic;
+}
+
+.citation-error {
+  color: #dc3545;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Cross-Reference Styles */
+.cross-reference {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.125rem 0.375rem;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-block;
+  margin: 0.125rem;
+  transition: all 0.2s;
+}
+
+.cross-reference:hover {
+  background: var(--tertiary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cross-reference::before {
+  content: "📖 ";
+  opacity: 0.7;
+}
+
+/* Footnote Styles */
+.footnote-ref {
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+
+.footnote-link {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.1em 0.3em;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 0.2em;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.footnote-link:hover {
+  background: var(--tertiary);
+  border-color: var(--primary);
+  text-decoration: none;
+}
+
+.footnote-content {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: 300px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  font-size: 0.875rem;
+}
+
+.footnote-backlink {
+  margin-left: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footnote-backlink:hover {
+  text-decoration: underline;
+}
+
+/* Reading mode visibility styles */
+[data-mode="quick"] .academic-note,
+[data-mode="quick"] .expandable-level-3 {
+  display: none;
+}
+
+[data-mode="study"] .academic-note {
+  display: flex;
+}
+
+body:not(.show-greek) .greek-word,
+body:not(.show-greek) .hebrew-word {
+  color: var(--content);
+  font-weight: normal;
+  text-decoration: none;
+  cursor: default;
+  font-family: inherit;
+}
+
+body:not(.show-greek) .word-tooltip {
+  display: none;
+}
+
+body:not(.show-citations) .citation {
+  display: none;
+}
+
+body:not(.show-footnotes) .footnote {
+  display: none;
+}
+
+/* Print styles */
+@media print {
+  .reading-controls,
+  .post-nav {
+    display: none;
+  }
+  
+  .expandable[open] .expandable-content {
+    display: block;
+  }
+  
+  .word-tooltip {
+    position: static;
+    display: inline;
+    background: none;
+    border: none;
+    font-weight: normal;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .original-word::after {
+    content: " (" attr(data-transliteration) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+</style>
+
+<!-- JavaScript for reading modes and shortcode interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modeInputs = document.querySelectorAll('input[name="reading-mode"]');
+  const viewOptions = document.querySelectorAll('.view-options input[type="checkbox"]');
+  
+  // Handle reading mode changes
+  modeInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      document.body.setAttribute('data-mode', this.value);
+      
+      // Handle expandable sections based on reading mode
+      const expandables = document.querySelectorAll('.expandable');
+      expandables.forEach(expandable => {
+        const level = parseInt(expandable.getAttribute('data-level'));
+        
+        if (this.value === 'quick') {
+          // Close all expandables in quick mode
+          expandable.removeAttribute('open');
+        } else if (this.value === 'study') {
+          // Open level 2 expandables in study mode
+          if (level <= 2) {
+            expandable.setAttribute('open', '');
+          }
+        } else if (this.value === 'academic') {
+          // Open all expandables in academic mode
+          expandable.setAttribute('open', '');
+        }
+      });
+    });
+  });
+  
+  // Handle view option changes
+  viewOptions.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const className = this.id.replace('show-', '');
+      document.body.classList.toggle(`show-${className}`, this.checked);
+    });
+    
+    // Set initial state
+    const className = checkbox.id.replace('show-', '');
+    document.body.classList.toggle(`show-${className}`, checkbox.checked);
+  });
+  
+  // Set initial reading mode
+  document.body.setAttribute('data-mode', 'quick');
+  
+  // Function to initialize Greek/Hebrew word tooltips
+  function initializeOriginalWords() {
+    const originalWords = document.querySelectorAll('.original-word');
+    originalWords.forEach(word => {
+      // Skip if already initialized
+      if (word.hasAttribute('data-tooltip-initialized')) {
+        return;
+      }
+      
+      word.setAttribute('data-tooltip-initialized', 'true');
+      word.setAttribute('tabindex', '0');
+      
+      // Add click event for mobile/touch devices
+      word.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Hide all other tooltips first
+        document.querySelectorAll('.original-word').forEach(w => {
+          if (w !== this) {
+            w.classList.remove('tooltip-active');
+          }
+        });
+        
+        // Toggle this tooltip
+        this.classList.toggle('tooltip-active');
+      });
+      
+      // Add keyboard accessibility
+      word.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Hide all other tooltips first
+          document.querySelectorAll('.original-word').forEach(w => {
+            if (w !== this) {
+              w.classList.remove('tooltip-active');
+            }
+          });
+          
+          // Toggle this tooltip
+          this.classList.toggle('tooltip-active');
+        }
+      });
+      
+      // Add hover events for desktop
+      word.addEventListener('mouseenter', function() {
+        this.classList.add('tooltip-hover');
+      });
+      
+      word.addEventListener('mouseleave', function() {
+        this.classList.remove('tooltip-hover');
+      });
+    });
+  }
+  
+  // Initialize original words on page load
+  initializeOriginalWords();
+  
+  // Re-initialize when expandable sections are opened
+  const expandables = document.querySelectorAll('.expandable');
+  expandables.forEach(expandable => {
+    expandable.addEventListener('toggle', function() {
+      if (this.hasAttribute('open')) {
+        // Wait a bit for content to be fully visible
+        setTimeout(initializeOriginalWords, 100);
+      }
+    });
+  });
+  
+  // Handle expandable sections keyboard accessibility
+  const expandableTitles = document.querySelectorAll('.expandable-title');
+  expandableTitles.forEach(title => {
+    title.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const details = this.parentElement;
+        if (details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        } else {
+          details.setAttribute('open', '');
+        }
+      }
+    });
+  });
+  
+  // Academic notes visibility based on reading mode
+  function updateAcademicContent() {
+    const currentMode = document.body.getAttribute('data-mode');
+    const academicNotes = document.querySelectorAll('.academic-note');
+    
+    academicNotes.forEach(note => {
+      if (currentMode === 'quick') {
+        note.style.display = 'none';
+      } else {
+        note.style.display = 'flex';
+      }
+    });
+  }
+  
+  // Initialize academic content visibility
+  updateAcademicContent();
+  
+  // Update when mode changes
+  modeInputs.forEach(input => {
+    input.addEventListener('change', updateAcademicContent);
+  });
+  
+  // Handle footnote interactions
+  function initializeFootnotes() {
+    const footnoteLinks = document.querySelectorAll('.footnote-link');
+    footnoteLinks.forEach(link => {
+      // Skip if already initialized
+      if (link.hasAttribute('data-footnote-initialized')) {
+        return;
+      }
+      
+      link.setAttribute('data-footnote-initialized', 'true');
+      
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const footnoteContent = document.getElementById(targetId);
+        
+        if (footnoteContent) {
+          // Toggle footnote visibility
+          if (footnoteContent.style.display === 'none' || !footnoteContent.style.display) {
+            // Hide all other footnotes
+            document.querySelectorAll('.footnote-content').forEach(fn => {
+              if (fn !== footnoteContent) {
+                fn.style.display = 'none';
+              }
+            });
+            // Show this footnote
+            footnoteContent.style.display = 'block';
+          } else {
+            footnoteContent.style.display = 'none';
+          }
+        }
+      });
+    });
+  }
+  
+  // Initialize footnotes on page load
+  initializeFootnotes();
+  
+  // Handle footnote backlinks
+  function initializeFootnoteBacklinks() {
+    const footnoteBacklinks = document.querySelectorAll('.footnote-backlink');
+    footnoteBacklinks.forEach(backlink => {
+      // Skip if already initialized
+      if (backlink.hasAttribute('data-backlink-initialized')) {
+        return;
+      }
+      
+      backlink.setAttribute('data-backlink-initialized', 'true');
+      
+      backlink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Hide the footnote
+        const footnoteContent = this.closest('.footnote-content');
+        if (footnoteContent) {
+          footnoteContent.style.display = 'none';
+        }
+        // Scroll to the reference (optional)
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+  }
+  
+  // Initialize footnote backlinks
+  initializeFootnoteBacklinks();
+  
+  // Re-initialize footnotes when expandable sections are opened
+  const expandableElements = document.querySelectorAll('.expandable');
+  expandableElements.forEach(expandable => {
+    expandable.addEventListener('toggle', function() {
+      if (this.hasAttribute('open')) {
+        // Wait a bit for content to be fully visible
+        setTimeout(() => {
+          initializeFootnotes();
+          initializeFootnoteBacklinks();
+        }, 100);
+      }
+    });
+  });
+  
+  // Close footnotes when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.footnote-ref') && !e.target.closest('.footnote-content')) {
+      document.querySelectorAll('.footnote-content').forEach(fn => {
+        fn.style.display = 'none';
+      });
+    }
+  });
+  
+  // Print functionality
+  function optimizeForPrint() {
+    // Expand all sections for printing
+    const expandables = document.querySelectorAll('.expandable');
+    expandables.forEach(expandable => {
+      expandable.setAttribute('open', '');
+    });
+  }
+  
+  // Listen for print events
+  window.addEventListener('beforeprint', optimizeForPrint);
+  
+  // Global click handler to close tooltips
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.original-word')) {
+      document.querySelectorAll('.original-word').forEach(word => {
+        word.classList.remove('tooltip-active');
+      });
+    }
+  });
+});
+</script>
+
+{{- end }}

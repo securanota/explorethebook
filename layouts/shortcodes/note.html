@@ -1,0 +1,27 @@
+{{- $content := .Inner -}}
+{{- $sources := split (.Get 0 | default "") "," -}}
+{{- $footnoteId := printf "mixnote-%d" (.Page.Scratch.Get "footnote-counter" | default 0) -}}
+{{- .Page.Scratch.Add "footnote-counter" 1 -}}
+
+<sup class="footnote-ref">
+  <a href="#fn-{{ $footnoteId }}" class="footnote-link" aria-label="Note">{{ .Page.Scratch.Get "footnote-counter" }}</a>
+</sup>
+
+<span class="footnote-content" id="fn-{{ $footnoteId }}" style="display: none;">
+  {{- $content | markdownify -}}
+  {{- if and ($content) (ne (.Get 0 | default "") "") }} {{- end -}}
+  {{- range $sources -}}
+    {{- $parts := split . ":" -}}
+    {{- $sourceId := index $parts 0 | strings.TrimSpace -}}
+    {{- $pages := index $parts 1 | default "" | strings.TrimSpace -}}
+    {{- if $sourceId -}}
+      {{- $source := index $.Site.Data.bibliography.sources $sourceId -}}
+      {{- if $source -}}
+        {{ $source.author }}, <em>{{ $source.title }}</em>{{ if $source.year }} ({{ $source.year }}){{ end }}{{ if $pages }}, {{ $pages }}{{ end }}.
+      {{- else -}}
+        [{{ $sourceId }} - source not found]
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  <a href="#ref-{{ $footnoteId }}" class="footnote-backlink" aria-label="Return to text">↩</a>
+</span>
