@@ -1,0 +1,6 @@
+Debug Main: {{ if $.Site.Data.bibliography }}YES{{ else }}NO{{ end }}<br>
+Debug Test: {{ if $.Site.Data.bibliography_test }}YES{{ else }}NO{{ end }}<br>
+{{ if $.Site.Data.bibliography }}
+Test Length: {{ len $.Site.Data.bibliography }}<br>
+Test First ID: {{ (index $.Site.Data.bibliography 0).id }}<br>
+{{ end }}

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "grudem1994",
+    "type": "systematic_theology",
+    "title": "Systematic Theology: An Introduction to Biblical Doctrine",
+    "author": [
+      {
+        "family": "Grudem",
+        "given": "Wayne"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1994"
+        ]
+      ]
+    },
+    "publisher": "Inter-Varsity Press"
+  },
+  {
+    "id": "berkhof1996",
+    "type": "systematic_theology",
+    "title": "Systematic Theology",
+    "author": [
+      {
+        "family": "Berkhof",
+        "given": "Louis"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1996"
+        ]
+      ]
+    },
+    "publisher": "Banner of Truth"
+  },
+  {
+    "id": "erickson2013",
+    "type": "systematic_theology",
+    "title": "Christian Theology",
+    "author": [
+      {
+        "family": "Erickson",
+        "given": "Millard J."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2013"
+        ]
+      ]
+    },
+    "publisher": "Baker Academic"
+  }
+]

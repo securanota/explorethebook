@@ -2,6 +2,8 @@
 {{- $sources := split (.Get 0 | default "") "," -}}
 {{- $footnoteId := printf "mixnote-%d" (.Page.Scratch.Get "footnote-counter" | default 0) -}}
 {{- .Page.Scratch.Add "footnote-counter" 1 -}}
+{{- $page := .Page -}}
+{{- $siteData := .Site.Data -}}
 
 <sup class="footnote-ref">
   <a href="#fn-{{ $footnoteId }}" class="footnote-link" aria-label="Note">{{ .Page.Scratch.Get "footnote-counter" }}</a>
@@ -15,9 +17,23 @@
     {{- $sourceId := index $parts 0 | strings.TrimSpace -}}
     {{- $pages := index $parts 1 | default "" | strings.TrimSpace -}}
     {{- if $sourceId -}}
-      {{- $source := index $.Site.Data.bibliography $sourceId -}}
+      {{- $source := false -}}
+      {{- $bibliographyFiles := $page.Params.bibliography_files | default (slice "bibliography") -}}
+      {{- range $bibliographyFiles -}}
+        {{- $bibData := index $siteData . -}}
+        {{- if $bibData -}}
+          {{- range $bibData -}}
+            {{- if eq .id $sourceId -}}
+              {{- $source = . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
       {{- if $source -}}
-        {{ $source.author }}, <em>{{ $source.title }}</em>{{ if $source.year }} ({{ $source.year }}){{ end }}{{ if $pages }}, {{ $pages }}{{ end }}.
+        {{- if $source.author -}}
+          {{ (index $source.author 0).family }}, {{ (index $source.author 0).given }}
+        {{- end -}}
+        , <em>{{ $source.title }}</em> (2024){{- if $pages }}, {{ $pages }}{{- end }}.
       {{- else -}}
         [{{ $sourceId }} - source not found]
       {{- end -}}

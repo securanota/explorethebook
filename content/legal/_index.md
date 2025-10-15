@@ -5,7 +5,7 @@ description: "Public domain dedication, usage permissions, and legal information
 
 # Legal Information
 
-## Public Domain Dedication
+## All Content Dedicated to the Glory of God
 
 ### Our Commitment
 All original content created for Explore The Book is **dedicated to the public domain**. This means:
@@ -37,14 +37,14 @@ Scripture quotations are taken from various translations. Each translation has i
 
 #### Public Domain Translations
 - **King James Version (KJV)** - Public domain in most countries
-- **American Standard Version (1901)** - Public domain
-- **World English Bible (WEB)** - Public domain
+- **Berean Standard Bible** - Public domain
 
 #### Copyrighted Translations
 When we quote from copyrighted Bible translations, such as:
 - English Standard Version (ESV)
-- New International Version (NIV)  
 - New American Standard Bible (NASB)
+- Legacy Standard Bible (LSB)  
+- New International Version (NIV)  
 
 These quotations are used under fair use provisions for educational and commentary purposes. Users should check copyright status for extensive use of these translations.
 
@@ -60,7 +60,6 @@ When we reference or link to third-party resources, these remain under their ori
 
 ## Permitted Uses
 
-### Personal and Ministry Use
 All content may be freely used for:
 - Personal study and devotion
 - Teaching in churches and educational settings
@@ -68,9 +67,6 @@ All content may be freely used for:
 - Evangelism and discipleship
 - Small group studies
 - Seminary and theological education
-
-### Commercial Use
-Our public domain dedication allows commercial use, including:
 - Publishing in books or magazines
 - Including in paid courses or seminars
 - Selling as part of commercial products
@@ -185,7 +181,6 @@ Material changes to our legal policies will be:
 - Dated with effective date
 - Explained in clear terms
 
-### Grandfathering
 Any content already in the public domain will remain in the public domain regardless of policy updates.
 
 ---

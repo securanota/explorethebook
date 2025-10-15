@@ -1,0 +1,67 @@
+[
+  {
+    "id": "carson1996",
+    "type": "methodology",
+    "title": "Exegetical Fallacies",
+    "author": [
+      {
+        "family": "Carson",
+        "given": "D. A."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1996"
+        ]
+      ]
+    },
+    "publisher": "Baker Books"
+  },
+  {
+    "id": "walton2000",
+    "type": "background",
+    "title": "The IVP Bible Background Commentary: Old Testament",
+    "author": [
+      {
+        "family": "Walton",
+        "given": "John H."
+      },
+      {
+        "family": "Matthews",
+        "given": "Victor H."
+      },
+      {
+        "family": "Chavalas",
+        "given": "Mark W."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2000"
+        ]
+      ]
+    },
+    "publisher": "InterVarsity Press"
+  },
+  {
+    "id": "ferguson1993",
+    "type": "background",
+    "title": "Backgrounds of Early Christianity",
+    "author": [
+      {
+        "family": "Ferguson",
+        "given": "Everett"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1993"
+        ]
+      ]
+    },
+    "publisher": "W.B. Eerdmans"
+  }
+]

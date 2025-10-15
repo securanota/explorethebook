@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fee1999",
+    "type": "commentary",
+    "title": "Paul's Letter to the Philippians",
+    "author": [
+      {
+        "family": "Fee",
+        "given": "Gordon D."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1999"
+        ]
+      ]
+    },
+    "publisher": "Eerdmans",
+    "collection-title": "New International Commentary on the New Testament"
+  },
+  {
+    "id": "martin1983",
+    "type": "commentary", 
+    "title": "Philippians",
+    "author": [
+      {
+        "family": "Martin",
+        "given": "Ralph P."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1983"
+        ]
+      ]
+    },
+    "publisher": "Marshall, Morgan & Scott",
+    "collection-title": "The New Century Bible Commentary"
+  },
+  {
+    "id": "obrien1991",
+    "type": "commentary",
+    "title": "The Epistle to the Philippians", 
+    "author": [
+      {
+        "family": "O'Brien",
+        "given": "Peter T."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1991"
+        ]
+      ]
+    },
+    "publisher": "Eerdmans",
+    "collection-title": "The New International Greek Testament Commentary"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "waltonIVPBibleBackground2000",
+    "type": "book",
+    "title": "The IVP Bible background commentary: Old Testament",
+    "author": [
+      {
+        "family": "Walton",
+        "given": "John H."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2000"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "rydelnikMoodyBibleCommentary2014",
+    "type": "book",
+    "title": "The Moody Bible commentary",
+    "author": [
+      {
+        "family": "Rydelnik",
+        "given": "Michael"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2014"
+        ]
+      ]
+    }
+  }
+]
