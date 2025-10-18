@@ -22,13 +22,6 @@
       <description></description>
     </item>
     <item>
-      <title>Belief</title>
-      <link>http://localhost:1313/topics/belief/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/belief/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Bible-Study</title>
       <link>http://localhost:1313/topics/bible-study/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -54,13 +47,6 @@
       <link>http://localhost:1313/topics/christology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/topics/christology/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Church</title>
-      <link>http://localhost:1313/topics/church/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/church/</guid>
       <description></description>
     </item>
     <item>
@@ -120,13 +106,6 @@
       <description></description>
     </item>
     <item>
-      <title>Eternal-Life</title>
-      <link>http://localhost:1313/topics/eternal-life/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/eternal-life/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Exegesis</title>
       <link>http://localhost:1313/topics/exegesis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -159,13 +138,6 @@
       <link>http://localhost:1313/topics/god-sovereignty/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/topics/god-sovereignty/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Gospel</title>
-      <link>http://localhost:1313/topics/gospel/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/gospel/</guid>
       <description></description>
     </item>
     <item>
@@ -239,31 +211,10 @@
       <description></description>
     </item>
     <item>
-      <title>Light</title>
-      <link>http://localhost:1313/topics/light/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/light/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Love</title>
-      <link>http://localhost:1313/topics/love/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/love/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Marriage</title>
       <link>http://localhost:1313/topics/marriage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/topics/marriage/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Natural-Revelation</title>
-      <link>http://localhost:1313/topics/natural-revelation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/natural-revelation/</guid>
       <description></description>
     </item>
     <item>
@@ -337,13 +288,6 @@
       <description></description>
     </item>
     <item>
-      <title>Righteousness</title>
-      <link>http://localhost:1313/topics/righteousness/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/righteousness/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Sabbath</title>
       <link>http://localhost:1313/topics/sabbath/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -355,13 +299,6 @@
       <link>http://localhost:1313/topics/sanctification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/topics/sanctification/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Signs</title>
-      <link>http://localhost:1313/topics/signs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/signs/</guid>
       <description></description>
     </item>
     <item>
@@ -425,27 +362,6 @@
       <link>http://localhost:1313/topics/virgin-birth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/topics/virgin-birth/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Witness</title>
-      <link>http://localhost:1313/topics/witness/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/witness/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Word</title>
-      <link>http://localhost:1313/topics/word/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/word/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Wrath</title>
-      <link>http://localhost:1313/topics/wrath/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/wrath/</guid>
       <description></description>
     </item>
   </channel>
